@@ -39,3 +39,8 @@ next-env.d.ts
 /_backup_*/
 /_screenshots/
 /out/
+
+# raw footage and review material (large, local only)
+/Footage Usage/
+/_footage_review/
+/Hero Section Video.mp4

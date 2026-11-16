@@ -14,7 +14,7 @@ import {
   StratcoWordmark,
   ArrowNeIcon,
 } from '@/components/StratcoVectors';
-import ConcaveBowlHero from '@/components/ConcaveBowlHero';
+import DocumentaryHero from '@/components/DocumentaryHero';
 import WorkShowcase, { KononenkoIndexMode } from '@/components/WorkShowcase';
 import { trackEvent } from '@/config/analytics';
 
@@ -209,7 +209,7 @@ export default function StratcoExperience() {
           NAVBAR
           ==================================================================== */}
       <header
-        className={`navbar navbar--light ${isScrolled ? 'is-scrolled' : ''} ${
+        className={`navbar navbar--on-video ${isScrolled ? 'is-scrolled' : ''} ${
           mobileMenuOpen ? 'is-menu-open' : ''
         }`}
       >
@@ -351,9 +351,9 @@ export default function StratcoExperience() {
 
       <main id="top">
         {/* ==================================================================
-            01. IMMERSIVE CONCAVE OPTICAL BOWL HERO (3D Spherical Bowl)
+            01. DOCUMENTARY VIDEO HERO (full-viewport film loop)
             ================================================================== */}
-        <ConcaveBowlHero />
+        <DocumentaryHero />
 
         {/* ==================================================================
             02. SELECTED WORK — INTERACTIVE SHOWCASE & LIGHTBOX

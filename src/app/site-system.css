@@ -1227,3 +1227,76 @@
     gap: 2rem;
   }
 }
+
+/* ---------- Case page: cleaner flow ---------- */
+.s-pagehead {
+  padding-top: calc(var(--s-section-y) + 2.5rem);
+}
+
+.s-section--case-body {
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+/* Follows the section above on the same background: no rule, no extra top space */
+.s-section.s-section--follow {
+  padding-top: 0;
+  border-top: 0;
+}
+
+.s-h3 {
+  font-family: var(--s-font);
+  font-size: var(--s-fs-lg);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.s-vcards__heading {
+  margin-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--s-line);
+}
+
+.s-next-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-top: 1.5rem;
+  min-height: 2.75rem;
+  border-top: 1px solid var(--s-line-inv);
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.s-next-row__label {
+  font-size: var(--s-fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--s-text-inv-2);
+}
+
+.s-next-row__name {
+  font-size: var(--s-fs-lg);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.s-next-row:hover .s-next-row__name {
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.s-next-row:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+/* Dark closing block runs into the dark footer: keep a hairline between */
+.s-section--dark + .s-footer,
+main:has(> .s-section--dark:last-child) + .s-footer {
+  border-top-color: var(--s-line-inv);
+}

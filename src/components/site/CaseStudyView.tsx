@@ -68,7 +68,7 @@ export default function CaseStudyView({
           </figure>
         </div>
 
-        <section className="s-section s-section--light">
+        <section className="s-section s-section--light s-section--case-body">
           <div className="container s-case-body">
             <div>
               <h2 className="s-label">The brief</h2>
@@ -91,31 +91,15 @@ export default function CaseStudyView({
           </div>
         </section>
 
-        {item.quote && (
-          <section className="s-section s-section--tint">
-            <div className="container">
-              <blockquote className="s-quote" style={{ maxWidth: '52rem' }}>
-                <p>“{item.quote.text}”</p>
-                <cite>{item.quote.who}</cite>
-              </blockquote>
-            </div>
-          </section>
-        )}
-
         {item.film && (
           <section
-            className="s-section s-section--light"
+            className="s-section s-section--light s-section--follow"
             aria-labelledby="vt-heading"
           >
             <div className="container">
-              <div className="s-head s-head--stack">
-                <p className="s-label s-label--accent">
-                  {VIDEO_TESTIMONIALS.label}
-                </p>
-                <h2 id="vt-heading" className="s-h2">
-                  {VIDEO_TESTIMONIALS.heading}
-                </h2>
-              </div>
+              <h2 id="vt-heading" className="s-h3 s-vcards__heading">
+                {VIDEO_TESTIMONIALS.heading}
+              </h2>
               <ul className="s-vcards">
                 {VIDEO_TESTIMONIALS.items.map((v) => {
                   const who = v.name ? `${v.name}, ${v.district}` : v.district;
@@ -163,22 +147,18 @@ export default function CaseStudyView({
           </section>
         )}
 
+        {/* One closing block: the proposal ask, then the next case */}
         <section className="s-section s-section--dark">
-          <div className="container s-cta-band">
-            <h2 className="s-h2">Planning something similar?</h2>
-            <a href="/#contact" className="s-btn s-btn--primary">
-              Request a proposal
-            </a>
-          </div>
-        </section>
-
-        <section className="s-section s-section--light">
           <div className="container">
-            <a href={`/work/${next.slug}/`} className="s-next">
-              <span className="s-label">Next case</span>
-              <span className="s-h2" style={{ display: 'block' }}>
-                {next.name} →
-              </span>
+            <div className="s-cta-band">
+              <h2 className="s-h2">Planning something similar?</h2>
+              <a href="/#contact" className="s-btn s-btn--primary">
+                Request a proposal
+              </a>
+            </div>
+            <a href={`/work/${next.slug}/`} className="s-next-row">
+              <span className="s-next-row__label">Next case</span>
+              <span className="s-next-row__name">{next.name} →</span>
             </a>
           </div>
         </section>

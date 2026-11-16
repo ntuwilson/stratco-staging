@@ -114,7 +114,7 @@ export const CASES: CaseCopy[] = [
       'Photographed every stage for reports and social media',
     ],
     result:
-      '2,500+ women trained by 38 trainers and 53 community mobilisers over 125 days, documented on film.',
+      'Trained by 38 trainers and 53 community mobilisers over 125 days, documented on film.',
     quote: {
       text: 'We took pictures of our businesses and posted them to get customers who are far away.',
       who: 'Apoyo Ruth Hilda, Nakasongola',

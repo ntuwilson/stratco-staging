@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { CONTACT } from '@/data/siteCopy';
 import { trackEvent } from '@/config/analytics';
 
@@ -22,6 +22,22 @@ export default function ContactForm() {
   const [mailtoHref, setMailtoHref] = useState<string | null>(null);
   const [preparedText, setPreparedText] = useState('');
   const [copied, setCopied] = useState(false);
+
+  // The campaign check hands over its summary as a starting brief
+  useEffect(() => {
+    const onPrefill = (e: Event) => {
+      const detail = (e as CustomEvent<string>).detail;
+      if (typeof detail !== 'string') return;
+      setNeed('Campaign');
+      setBrief((prev) => (prev.trim() ? `${prev}\n\n${detail}` : detail));
+      window.setTimeout(
+        () => document.getElementById('cf-name')?.focus({ preventScroll: true }),
+        600
+      );
+    };
+    window.addEventListener('stratco:prefill-brief', onPrefill);
+    return () => window.removeEventListener('stratco:prefill-brief', onPrefill);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

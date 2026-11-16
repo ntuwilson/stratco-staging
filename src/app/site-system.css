@@ -1742,3 +1742,310 @@ a.s-sector__example:focus-visible {
 .s-section--dark .s-vcard:focus-visible {
   outline-color: #FFFFFF;
 }
+
+/* ---------- Campaign check (home) ---------- */
+.s-visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.s-btn--dark {
+  background: #141414;
+  color: #FFFFFF;
+}
+
+.s-btn--dark:hover {
+  background: #000000;
+}
+
+.s-btn--dark:disabled,
+.s-btn--dark:disabled:hover {
+  background: #141414;
+  color: #FFFFFF;
+  border-color: transparent;
+  opacity: 0.35;
+}
+
+.s-split--check {
+  align-items: start;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+}
+
+.s-checkcard {
+  overflow: hidden;
+  border: 1px solid var(--s-line);
+  border-radius: calc(var(--s-radius) * 2);
+  background: var(--s-paper-2);
+}
+
+.s-checkcard__bar {
+  height: 3px;
+  background: rgba(20, 20, 20, 0.08);
+}
+
+.s-checkcard__bar span {
+  display: block;
+  height: 100%;
+  background: var(--s-accent);
+  transition: width 0.4s var(--ease);
+}
+
+.s-checkcard__body {
+  display: flex;
+  flex-direction: column;
+  min-height: 32.5rem;
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.s-checkcard__intro,
+.s-checkcard__q,
+.s-checkcard__result {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  border: 0;
+}
+
+.s-checkcard__step {
+  margin-bottom: 0.75rem;
+  font-size: var(--s-fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--s-text-2);
+}
+
+.s-checkcard__areas {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-bottom: 1.75rem;
+  counter-reset: area;
+  border-top: 1px solid var(--s-line);
+}
+
+.s-checkcard__areas li {
+  counter-increment: area;
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid var(--s-line);
+  font-size: var(--s-fs-md);
+  font-weight: 500;
+}
+
+.s-checkcard__areas li::before {
+  content: counter(area, decimal-leading-zero);
+  font-size: var(--s-fs-sm);
+  color: var(--s-accent);
+}
+
+.s-checkcard__start {
+  align-self: flex-start;
+  margin-top: auto;
+}
+
+.s-checkcard__question {
+  font-family: var(--s-font);
+  font-size: var(--s-fs-lg);
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+  color: var(--s-text);
+  outline: none;
+}
+
+.s-checkcard__hint {
+  margin-top: 0.4rem;
+  font-size: var(--s-fs-sm);
+  color: var(--s-text-2);
+}
+
+.s-checkcard__options {
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 1.25rem;
+}
+
+.s-option {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  width: 100%;
+  min-height: 3.1rem;
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--s-line);
+  border-radius: var(--s-radius);
+  background: #FFFFFF;
+  font-family: var(--s-font);
+  font-size: var(--s-fs-md);
+  line-height: 1.35;
+  text-align: left;
+  color: var(--s-text);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.s-option:hover {
+  border-color: var(--s-text);
+}
+
+.s-option:focus-visible {
+  outline: 2px solid var(--s-accent);
+  outline-offset: 2px;
+}
+
+.s-option__mark {
+  flex: none;
+  width: 1.1rem;
+  height: 1.1rem;
+  border: 1.5px solid var(--s-text-2);
+  border-radius: 50%;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.s-option.is-selected {
+  border-color: var(--s-accent);
+  background: #FFF6F7;
+}
+
+.s-option.is-selected .s-option__mark {
+  border-color: var(--s-accent);
+  box-shadow: inset 0 0 0 4px var(--s-accent);
+}
+
+.s-checkcard__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.s-checkcard__back {
+  min-height: 2.75rem;
+  font-size: var(--s-fs-sm);
+  color: var(--s-text-2);
+  text-decoration: none;
+}
+
+.s-checkcard__back:hover {
+  color: var(--s-text);
+}
+
+.s-checkcard__score {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  outline: none;
+}
+
+.s-checkcard__score strong {
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  font-weight: 500;
+  line-height: 0.9;
+  letter-spacing: -0.05em;
+  color: var(--s-accent);
+}
+
+.s-checkcard__score span {
+  font-size: var(--s-fs-lg);
+  color: var(--s-text-2);
+}
+
+.s-checkcard__band {
+  margin-top: 0.75rem;
+  font-size: var(--s-fs-lg);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.s-checkcard__line {
+  margin-top: 0.25rem;
+  font-size: var(--s-fs-md);
+  line-height: 1.5;
+  color: var(--s-text-2);
+}
+
+.s-checkcard__tips-title {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--s-line);
+  font-size: var(--s-fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--s-text-2);
+}
+
+.s-checkcard__tips {
+  display: grid;
+  gap: 0.75rem;
+  margin-top: 0.85rem;
+  counter-reset: tip;
+}
+
+.s-checkcard__tips li {
+  counter-increment: tip;
+  display: grid;
+  grid-template-columns: 1.75rem 1fr;
+  font-size: var(--s-fs-md);
+  line-height: 1.5;
+  color: var(--s-text);
+}
+
+.s-checkcard__tips li::before {
+  content: counter(tip);
+  font-size: var(--s-fs-sm);
+  font-weight: 600;
+  color: var(--s-accent);
+}
+
+.s-checkcard__tips strong {
+  font-weight: 600;
+}
+
+.s-checkcard__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 900px) {
+  .s-split--check {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .s-checkcard__body {
+    min-height: 28rem;
+  }
+
+  .s-checkcard__areas {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 1rem;
+  }
+
+  .s-checkcard__areas li {
+    padding: 0.65rem 0;
+    font-size: var(--s-fs-sm);
+  }
+
+  .s-checkcard__start,
+  .s-checkcard__actions .s-btn {
+    width: 100%;
+  }
+
+  .s-option {
+    font-size: var(--s-fs-sm);
+  }
+}

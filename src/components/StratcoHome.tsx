@@ -6,6 +6,7 @@ import Placeholder from '@/components/site/Placeholder';
 import FilmButton from '@/components/site/FilmButton';
 import ContactForm from '@/components/site/ContactForm';
 import VideoTestimonials from '@/components/site/VideoTestimonials';
+import CampaignCheck from '@/components/site/CampaignCheck';
 import { CASE_STUDIES } from '@/data/stratcoData';
 import {
   CASES,
@@ -208,30 +209,15 @@ export default function StratcoHome() {
           </div>
         </section>
 
-        {/* 9. Free campaign check (static preview until the quiz is approved) */}
-        <section className="s-section s-section--light">
-          <div className="container s-split s-split--even">
+        {/* 9. Free campaign check */}
+        <section id="campaign-check" className="s-section s-section--light">
+          <div className="container s-split s-split--check">
             <div className="s-split__text">
-              <p className="s-label">Free campaign check</p>
+              <p className="s-label s-label--accent">{CHECK.label}</p>
               <h2 className="s-h2">{CHECK.heading}</h2>
               <p className="s-lead">{CHECK.body}</p>
-              <button
-                type="button"
-                className="s-btn s-btn--outline"
-                disabled
-                aria-describedby="check-soon"
-              >
-                {CHECK.button}
-              </button>
-              <p id="check-soon" className="s-note">
-                <Placeholder text="[Interactive check to be built once the idea is approved]" />
-              </p>
             </div>
-            <ol className="s-check">
-              {CHECK.questions.map((q) => (
-                <li key={q}>{q}</li>
-              ))}
-            </ol>
+            <CampaignCheck />
           </div>
         </section>
 

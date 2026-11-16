@@ -274,17 +274,110 @@ export const TESTIMONIALS = {
     '[Second quote: a client decision maker, for example a programme lead at Penda or UCC, with permission]',
 };
 
+// Free campaign check: six self-assessment questions, scored 0-3 each.
+// Advice only; no figures or claims about Stratco results.
+export type CheckArea = 'message' | 'audience' | 'budget' | 'timeline' | 'channels' | 'measurement';
+
+export interface CheckOption {
+  label: string;
+  score: number;
+}
+
+export interface CheckQuestion {
+  area: CheckArea;
+  areaName: string;
+  question: string;
+  options: CheckOption[];
+  multi?: boolean;
+  tip: string;
+}
+
 export const CHECK = {
+  label: 'Free campaign check',
   heading: 'Is your next campaign ready?',
-  body: 'Answer six quick questions about your goal, audience, budget and timeline. You get a score and three practical tips straight away. Free, no sign-up.',
+  body: 'Six quick questions. You get a readiness score and three practical next steps. Free, no sign-up, about a minute.',
   button: 'Check your campaign',
   questions: [
-    'What is the one thing people must remember?',
-    'Who exactly needs to hear it?',
-    'What is your budget range?',
-    'When does it need to go live?',
-    'Which channels will carry it: event, TV, digital, field?',
-    'How will you measure success?',
+    {
+      area: 'message',
+      areaName: 'Message',
+      question: 'Can you say the one thing people must remember in one sentence?',
+      options: [
+        { label: 'Yes, it’s written down', score: 3 },
+        { label: 'Roughly', score: 2 },
+        { label: 'Not yet', score: 0 },
+      ],
+      tip: 'Write the one line before anything else; every advert, banner and post should repeat it.',
+    },
+    {
+      area: 'audience',
+      areaName: 'Audience',
+      question: 'Who exactly needs to hear it?',
+      options: [
+        { label: 'A specific group we can describe', score: 3 },
+        { label: 'A broad group, like “the public”', score: 1 },
+        { label: 'Not sure yet', score: 0 },
+      ],
+      tip: 'Name the people who decide or buy, and where they already spend time; that picks your channels for you.',
+    },
+    {
+      area: 'budget',
+      areaName: 'Budget',
+      question: 'Is the budget agreed?',
+      options: [
+        { label: 'Approved, with a figure', score: 3 },
+        { label: 'A rough range', score: 2 },
+        { label: 'Not yet', score: 0 },
+      ],
+      tip: 'Set a working range now; it decides whether this is one strong event, a media push, or both.',
+    },
+    {
+      area: 'timeline',
+      areaName: 'Timeline',
+      question: 'When does it need to go live?',
+      options: [
+        { label: 'More than 8 weeks away', score: 3 },
+        { label: '4 to 8 weeks', score: 2 },
+        { label: 'Under 4 weeks', score: 1 },
+        { label: 'No date yet', score: 0 },
+      ],
+      tip: 'Work back from the launch date; production, branding and media bookings usually need the most lead time.',
+    },
+    {
+      area: 'channels',
+      areaName: 'Channels',
+      question: 'Which channels will carry it?',
+      multi: true,
+      options: [
+        { label: 'Event or activation', score: 0 },
+        { label: 'TV or radio', score: 0 },
+        { label: 'Digital and social', score: 0 },
+        { label: 'Field or community', score: 0 },
+        { label: 'Not decided', score: 0 },
+      ],
+      tip: 'Choose two or three channels that reach the same audience and let them repeat one message.',
+    },
+    {
+      area: 'measurement',
+      areaName: 'Measurement',
+      question: 'How will you know it worked?',
+      options: [
+        { label: 'Clear targets, like reach, leads or attendance', score: 3 },
+        { label: 'We’ll look at likes and views', score: 1 },
+        { label: 'Haven’t decided', score: 0 },
+      ],
+      tip: 'Agree two or three numbers before launch, such as attendance, reach or enquiries, and how you will count them.',
+    },
+  ] as CheckQuestion[],
+  bands: [
+    { min: 80, name: 'Ready to launch', line: 'The basics are in place. The work now is execution and keeping one message everywhere.' },
+    { min: 50, name: 'Nearly there', line: 'A solid start. Close the gaps below before money goes into production and media.' },
+    { min: 0, name: 'Needs groundwork', line: 'Settle the essentials first; it will save budget and time later.' },
+  ],
+  momentumTips: [
+    'Brief everyone involved with the same one-line message and the same dates.',
+    'Plan what to film and photograph on the day, so content keeps working after launch.',
+    'Book a short review a week after launch to check the numbers you agreed.',
   ],
 };
 

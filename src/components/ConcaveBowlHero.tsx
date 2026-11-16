@@ -5,7 +5,7 @@ import { ArrowNeIcon } from '@/components/StratcoVectors';
 
 /**
  * 16 real compressed Stratco production photographs across UCC Conference,
- * Trust Empowerment Programme (TEP), and Digital Skilling for Women (50+ Districts).
+ * Trust Empowerment Programme (TEP), and Digital Skilling for Women (25+ Districts).
  */
 const BOWL_PHOTOS: { src: string; aspect: number }[] = [
   { src: '/images/ucc/0R7A9106.jpg', aspect: 1.5 },

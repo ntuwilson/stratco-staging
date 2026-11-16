@@ -124,12 +124,12 @@ export const HERO_REEL_MODES: HeroReelMode[] = [
     index: '02',
     label: 'Documentary & Commercial Film',
     headline:
-      'Digital Skilling for Women — 50+ District National Documentary Production.',
+      'Digital Skilling for Women — 25+ District National Documentary Production.',
     meta: 'CLIENT: PENDA · PARTNERS: UCC · UCUSAF · 2024 – 2026',
     image: '/images/dlw/UCC00169.jpg',
     specs: [
       'Documentary Concept & Direction',
-      '50+ District Stories & Testimonials',
+      '25+ District Stories & Testimonials',
       'In-House Edit, Color & Sound',
     ],
   },
@@ -412,7 +412,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     index: '03',
     shortName: 'Digital Skilling for Women in the Informal Sector',
     titleLines: ['Digital Skilling for Women', 'in the Informal Sector'],
-    tabTagline: '50+ district documentary on women adapting to the digital age',
+    tabTagline: '25+ district documentary on women adapting to the digital age',
     sector: 'CLIENT: PENDA · PARTNERS: UCC · UCUSAF · MINISTRY OF ICT · ZIMBA WOMEN',
     badge: 'Film & TVC · Strategy & Campaigns',
     filterCategories: [
@@ -423,9 +423,9 @@ export const CASE_STUDIES: CaseStudy[] = [
     ],
     status: 'FULL PROJECT',
     title:
-      'Digital Skilling for Women in the Informal Sector — 50+ District Documentary Production',
+      'Digital Skilling for Women in the Informal Sector — 25+ District Documentary Production',
     summary:
-      'Running from 2024 to 2026 for the Uganda Communications Commission (UCC), UCUSAF, the Ministry of ICT and National Guidance, and partners, Digital Skilling for Women in the Informal Sector taught women across Uganda practical digital skills to adapt and thrive in the digital age. Commissioned by implementing client Penda, Stratco developed the documentary concepts, travelled across 50+ districts to capture participant stories and video testimonials, and produced the full documentary chronicling how the sessions unfolded.',
+      'Running from 2024 to 2026 for the Uganda Communications Commission (UCC), UCUSAF, the Ministry of ICT and National Guidance, and partners, Digital Skilling for Women in the Informal Sector taught women across Uganda practical digital skills to adapt and thrive in the digital age. Commissioned by implementing client Penda, Stratco developed the documentary concepts, travelled across 25+ districts to capture participant stories and video testimonials, and produced the full documentary chronicling how the sessions unfolded.',
     insight:
       'Documenting digital transformation in the informal economy means looking beyond attendance numbers—developing authentic documentary storylines around market vendors, tailors, and community entrepreneurs using digital tools for the first time.',
     client: 'Penda (Implementing Organization)',
@@ -433,15 +433,15 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Uganda Communications Commission (UCC) · UCUSAF · Ministry of ICT & National Guidance · Zimba Women',
     timeline: '2024 – 2026',
     industry: 'Digital Inclusion, Telecommunications & Documentary Film',
-    location: '50+ Districts Across Uganda',
+    location: '25+ Districts Across Uganda',
     scaleSpec:
-      '50+ Districts · Documentary Ideation · Stories & Testimonials · Full Film',
+      '25+ Districts · Documentary Ideation · Stories & Testimonials · Full Film',
     heroMetric: {
-      number: '50+',
+      number: '25+',
       sup: 'Districts',
-      gridLabel: '50+ Districts · 2024–2026',
+      gridLabel: '25+ Districts · 2024–2026',
     },
-    thesisTitle: '50+ Districts. Stories of Digital Adaptation.',
+    thesisTitle: '25+ Districts. Stories of Digital Adaptation.',
     thesisParagraphs: [
       'Spanning 2024 to 2026 across more than 50 districts, this flagship UCC and UCUSAF initiative equipped women in the informal sector with hands-on smartphone, tablet, and digital business skills. Tasked by implementing client Penda, Stratco originated the creative documentary concepts and story arcs before deploying film and photography crews into regional communities nationwide.',
       'In every district cluster, our directors and cinematographers captured both the live classroom energy and intimate participant testimonials—weaving personal stories of digital adaptation into a comprehensive documentary film of the programme.',
@@ -450,7 +450,7 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Documentary Concept Development & Story Ideation',
       'Participant Human-Interest Stories & Video Testimonials',
       'Full Programme Session Documentary Production',
-      '50+ District Field Cinematography & Photography (2024–2026)',
+      '25+ District Field Cinematography & Photography (2024–2026)',
     ],
     credits: [
       {
@@ -458,11 +458,11 @@ export const CASE_STUDIES: CaseStudy[] = [
         name: 'Stratco Film & Strategy Desk',
       },
       {
-        role: '50+ District Field Cinematography & Stills',
+        role: '25+ District Field Cinematography & Stills',
         name: 'Stratco Documentary Crew',
       },
     ],
-    footerMeta: '9 Production Stills · 50+ Districts · 2024–2026 · Client: Penda',
+    footerMeta: '9 Production Stills · 25+ Districts · 2024–2026 · Client: Penda',
     image: '/images/dlw/UCC00169.jpg',
     gallery: [
       {
@@ -477,7 +477,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tag: '02 / DISTRICT SESSION DOCUMENTARY',
         aspect: 'portrait',
         caption:
-          'Full community hall training session for UCC, Ministry of ICT, and UCUSAF—documented by Stratco for implementing client Penda across 50+ districts.',
+          'Full community hall training session for UCC, Ministry of ICT, and UCUSAF—documented by Stratco for implementing client Penda across 25+ districts.',
       },
       {
         src: '/images/dlw/UCC0C130.jpg',
@@ -505,7 +505,7 @@ export const CASE_STUDIES: CaseStudy[] = [
         tag: '06 / GRASSROOTS DISTRICT ARRIVAL',
         aspect: 'landscape',
         caption:
-          'Community participant registration outside a regional training site during the 50+ district documentary tour.',
+          'Community participant registration outside a regional training site during the 25+ district documentary tour.',
       },
       {
         src: '/images/dlw/UCC0C111.jpg',
@@ -532,16 +532,16 @@ export const CASE_STUDIES: CaseStudy[] = [
     challenge:
       'Conceptualize and produce an authentic, human-centred documentary for Penda chronicling UCC and UCUSAF’s Digital Skilling for Women in the Informal Sector across more than 50 districts from 2024 to 2026.',
     solution:
-      'Stratco developed the overarching documentary ideas and interview frameworks, deployed field crews across 50+ districts to record participant stories and testimonials, and produced the complete documentary of the sessions.',
+      'Stratco developed the overarching documentary ideas and interview frameworks, deployed field crews across 25+ districts to record participant stories and testimonials, and produced the complete documentary of the sessions.',
     deliverables: [
       'Documentary Creative Concepts & Narrative Treatment',
       'Multi-District Participant Stories & Video Testimonials',
       'Full-Length Session & Impact Documentary Film',
-      '50+ District Documentary Photography Archive',
+      '25+ District Documentary Photography Archive',
     ],
     metrics: [
       { label: 'Client', value: 'Penda (for UCC & UCUSAF)' },
-      { label: 'Coverage', value: '50+ Districts · 2024–2026' },
+      { label: 'Coverage', value: '25+ Districts · 2024–2026' },
     ],
     intent: 'tvc',
   },
@@ -576,12 +576,12 @@ export const INTERACTIVE_SERVICES: InteractiveService[] = [
     title: 'Film, TVCs & Documentaries',
     anchor: 'Shoot',
     summary:
-      'Television commercials, cinema direction, and 50+ district documentaries.',
+      'Television commercials, cinema direction, and 25+ district documentaries.',
     description:
-      'Stratco directs, shoots, edits, grades, and masters commercial spots and nationwide documentaries in-house—from prime-time TVCs to 50+ district story tours.',
+      'Stratco directs, shoots, edits, grades, and masters commercial spots and nationwide documentaries in-house—from prime-time TVCs to 25+ district story tours.',
     image: '/images/dlw/UCC00169.jpg',
     caption:
-      'Digital Skilling for Women — 50+ District Documentary Production',
+      'Digital Skilling for Women — 25+ District Documentary Production',
     capabilities: [
       'Television Commercials (TVCs)',
       'Multi-District Documentary Films',
@@ -671,8 +671,8 @@ export const PRODUCTION_STEPS: ProductionStep[] = [
       '3D Stage & LED Plot',
     ],
     image: '/images/dlw/UCC0C130.jpg',
-    caption: 'Documentary Story Ideation — 50+ District Digital Skilling Tour',
-    projectLabel: 'Digital Skilling (50+ Districts)',
+    caption: 'Documentary Story Ideation — 25+ District Digital Skilling Tour',
+    projectLabel: 'Digital Skilling (25+ Districts)',
     projectSlug: 'digital-skilling-for-women',
   },
   {

@@ -22,10 +22,10 @@
   --s-font: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   --s-fs-xs: 0.8125rem;
   --s-fs-sm: 0.9375rem;
-  --s-fs-md: 1.0625rem;
-  --s-fs-lg: clamp(1.25rem, 1.6vw, 1.5rem);
-  --s-fs-xl: clamp(2rem, 3.6vw, 3.25rem);
-  --s-fs-hero: clamp(2.75rem, 6.6vw, 6.25rem);
+  --s-fs-md: clamp(1rem, 0.95rem + 0.2vw, 1.0625rem);
+  --s-fs-lg: clamp(1.15rem, 0.95rem + 0.9vw, 1.5rem);
+  --s-fs-xl: clamp(1.75rem, 1.15rem + 2.6vw, 3.25rem);
+  --s-fs-hero: clamp(2.5rem, 1.4rem + 5.2vw, 6.25rem);
 
   /* Space and shape (about a third tighter than the old sections) */
   --s-section-y: clamp(4rem, 7vw, 6rem);
@@ -1428,5 +1428,298 @@ a.s-sector__example:focus-visible {
 
   .s-sector__example:empty {
     display: none;
+  }
+}
+
+/* ==========================================================================
+   Compact pass: tighter case header, bolder brief / answer / result,
+   shorter mobile pages
+   ========================================================================== */
+
+/* Case header: title, figure and facts in one compact block */
+.s-pagehead {
+  padding-top: calc(4.75rem + clamp(1.5rem, 3vw, 2.5rem));
+  padding-bottom: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+.s-back {
+  margin-bottom: 0.75rem;
+}
+
+.s-case-head__grid .s-h1 {
+  font-size: clamp(2.25rem, 4.4vw, 4rem);
+}
+
+.s-case-head__grid {
+  align-items: end;
+}
+
+.s-case-figure {
+  padding-top: 0.9rem;
+}
+
+.s-case-figure strong {
+  font-size: clamp(2.5rem, 4.6vw, 4.25rem);
+}
+
+.s-case-figure span {
+  margin-top: 0.35rem;
+}
+
+.s-facts {
+  margin-top: clamp(1.25rem, 2.5vw, 2rem);
+  padding-top: 1rem;
+}
+
+/* Wider, shorter lead image so the page starts with more than a photo */
+.s-case-media {
+  aspect-ratio: 21 / 9;
+}
+
+/* Brief / answer / result: bolder, cleaner */
+.s-section--case-body {
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.s-case-block {
+  padding-top: 1.25rem;
+  border-top: 2px solid var(--s-text);
+}
+
+.s-case-block__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
+  font-family: var(--s-font);
+  font-size: var(--s-fs-lg);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--s-text);
+}
+
+.s-case-block__title span {
+  font-size: var(--s-fs-sm);
+  font-weight: 500;
+  color: var(--s-accent);
+}
+
+.s-case-body .s-case-block p,
+.s-case-body .s-case-block li {
+  color: var(--s-text);
+}
+
+.s-case-block--result p {
+  font-size: var(--s-fs-lg);
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -0.015em;
+}
+
+/* Video cards: thumbnails only */
+.s-vcards__heading {
+  margin-bottom: 1.25rem;
+}
+
+.s-section--follow {
+  padding-bottom: clamp(3rem, 5vw, 4.5rem);
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 640px) {
+  :root {
+    --s-section-y: 3rem;
+    --s-head-gap: 1.5rem;
+  }
+
+  /* Hero: shorter than the screen so the next section shows */
+  .s-site .doc-hero {
+    min-height: 74svh;
+  }
+
+  .s-site .doc-hero__content {
+    padding-top: 5.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .s-site .doc-hero__copy {
+    margin-bottom: 1.5rem;
+    font-size: 1rem;
+  }
+
+  .s-site .doc-hero__actions {
+    gap: 0.6rem;
+  }
+
+  /* Horizontal swipe rail instead of a long stack */
+  .s-rail {
+    display: grid;
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    gap: 0.9rem;
+    margin-right: calc(var(--side-pad) * -1);
+    padding-right: var(--side-pad);
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+
+  .s-rail::-webkit-scrollbar {
+    display: none;
+  }
+
+  .s-rail > li {
+    scroll-snap-align: start;
+  }
+
+  .s-vcards.s-rail {
+    gap: 0.9rem;
+  }
+
+  /* Numbers and clients */
+  .s-number__value {
+    font-size: 2.1rem;
+  }
+
+  .s-numbers {
+    gap: 1.25rem 1rem;
+  }
+
+  .s-clients {
+    margin-top: 2.25rem;
+  }
+
+  .s-clients__list {
+    flex-direction: row;
+    gap: 0.4rem 1.25rem;
+    font-size: var(--s-fs-sm);
+  }
+
+  /* Why */
+  .s-split {
+    gap: 1.75rem;
+  }
+
+  .s-split__media {
+    aspect-ratio: 16 / 10;
+  }
+
+  .s-lead {
+    font-size: 1.125rem;
+  }
+
+  .s-points {
+    margin-top: 1.25rem;
+    padding-top: 1.25rem;
+    gap: 0.75rem;
+  }
+
+  /* Cards */
+  .s-card__body {
+    padding-top: 0.9rem;
+    gap: 0.4rem;
+  }
+
+  .s-card__meta {
+    display: none;
+  }
+
+  /* Sectors, services, steps */
+  .s-sectors {
+    row-gap: 1.5rem;
+  }
+
+  .s-sector {
+    padding-top: 1rem;
+    row-gap: 0.35rem;
+  }
+
+  .s-grid3 {
+    gap: 1.5rem;
+  }
+
+  .s-service {
+    padding-top: 1rem;
+    gap: 0.4rem;
+  }
+
+  .s-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 1rem;
+  }
+
+  .s-step {
+    gap: 0.5rem;
+  }
+
+  .s-step__text,
+  .s-service__text,
+  .s-sector__text {
+    font-size: var(--s-fs-sm);
+  }
+
+  /* Quotes, check, watch */
+  .s-quotes {
+    gap: 1.5rem;
+  }
+
+  .s-quote p {
+    font-size: 1.5rem;
+  }
+
+  .s-check li {
+    padding: 0.75rem 0;
+    font-size: var(--s-fs-sm);
+  }
+
+  .s-channels {
+    margin-top: 1.25rem;
+  }
+
+  /* Contact form */
+  .s-form {
+    gap: 1.1rem;
+  }
+
+  .s-form__grid {
+    gap: 0.9rem;
+  }
+
+  .s-direct {
+    margin-top: 1.25rem;
+  }
+
+  /* Case page */
+  .s-pagehead {
+    padding-top: 5.5rem;
+  }
+
+  .s-case-head__grid {
+    gap: 1rem;
+  }
+
+  .s-case-media {
+    aspect-ratio: 4 / 3;
+  }
+
+  .s-facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .s-facts > div:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .s-case-body {
+    gap: 2rem;
+  }
+
+  .s-next-row {
+    margin-top: 2rem;
   }
 }

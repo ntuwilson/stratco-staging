@@ -108,7 +108,7 @@ export default function StratcoHome() {
                 See the work
               </a>
             </div>
-            <ul className="s-cards">
+            <ul className="s-cards s-rail">
               {CASES.map((c) => (
                 <li key={c.slug}>
                   <a href={`/work/${c.slug}/`} className="s-card">

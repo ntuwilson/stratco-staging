@@ -70,20 +70,26 @@ export default function CaseStudyView({
 
         <section className="s-section s-section--light s-section--case-body">
           <div className="container s-case-body">
-            <div>
-              <h2 className="s-label">The brief</h2>
+            <div className="s-case-block">
+              <h2 className="s-case-block__title">
+                <span>01</span> The brief
+              </h2>
               <p>{item.brief}</p>
             </div>
-            <div>
-              <h2 className="s-label">Our answer</h2>
+            <div className="s-case-block">
+              <h2 className="s-case-block__title">
+                <span>02</span> Our answer
+              </h2>
               <ul>
                 {item.answer.map((a) => (
                   <li key={a}>{a}</li>
                 ))}
               </ul>
             </div>
-            <div>
-              <h2 className="s-label">The result</h2>
+            <div className="s-case-block s-case-block--result">
+              <h2 className="s-case-block__title">
+                <span>03</span> The result
+              </h2>
               <p>
                 <Placeholder text={item.result} />
               </p>
@@ -100,7 +106,7 @@ export default function CaseStudyView({
               <h2 id="vt-heading" className="s-h3 s-vcards__heading">
                 {VIDEO_TESTIMONIALS.heading}
               </h2>
-              <ul className="s-vcards">
+              <ul className="s-vcards s-rail">
                 {VIDEO_TESTIMONIALS.items.map((v) => {
                   const who = v.name ? `${v.name}, ${v.district}` : v.district;
                   return (
@@ -122,21 +128,6 @@ export default function CaseStudyView({
                             </svg>
                           </span>
                           <span className="s-vcard__time">{v.duration}</span>
-                        </span>
-                        <span className="s-vcard__body">
-                          {v.name && (
-                            <span className="s-vcard__name">{v.name}</span>
-                          )}
-                          <span
-                            className={
-                              v.name ? 's-vcard__place' : 's-vcard__name'
-                            }
-                          >
-                            {v.district} District
-                          </span>
-                          {v.line && (
-                            <span className="s-vcard__line">“{v.line}”</span>
-                          )}
                         </span>
                       </FilmButton>
                     </li>

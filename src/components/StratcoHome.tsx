@@ -134,18 +134,26 @@ export default function StratcoHome() {
         {/* 5. Sectors */}
         <section className="s-section s-section--dark">
           <div className="container">
-            <div className="s-head s-head--stack">
+            <div className="s-head s-head--split">
               <h2 className="s-h2">Sectors we serve</h2>
-              <p className="s-lead">{SECTORS_INTRO}</p>
+              <p className="s-head__intro">{SECTORS_INTRO}</p>
             </div>
-            <ul className="s-grid4">
-              {SECTORS.map((s) => (
-                <li key={s.key} className="s-tile">
-                  <h3 className="s-tile__title">{s.name}</h3>
-                  <p className="s-tile__text">{s.text}</p>
-                  <p className="s-tile__example">
-                    Example: <Placeholder text={s.example} />
-                  </p>
+            <ul className="s-sectors">
+              {SECTORS.map((s, i) => (
+                <li key={s.key} className="s-sector">
+                  <span className="s-sector__num">0{i + 1}</span>
+                  <h3 className="s-sector__title">{s.name}</h3>
+                  <p className="s-sector__text">{s.text}</p>
+                  {s.example && s.caseSlug ? (
+                    <a href={`/work/${s.caseSlug}/`} className="s-sector__example">
+                      <span className="s-sector__example-label">Example</span>
+                      <span className="s-sector__example-name">
+                        {s.example} <span aria-hidden="true">→</span>
+                      </span>
+                    </a>
+                  ) : (
+                    <span className="s-sector__example" aria-hidden="true" />
+                  )}
                 </li>
               ))}
             </ul>

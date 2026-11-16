@@ -1300,3 +1300,133 @@
 main:has(> .s-section--dark:last-child) + .s-footer {
   border-top-color: var(--s-line-inv);
 }
+
+/* ---------- Sectors (home) ---------- */
+.s-head--split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: start;
+  gap: 1rem clamp(2rem, 5vw, 5rem);
+}
+
+.s-head__intro {
+  max-width: 34rem;
+  padding-top: 0.5rem;
+  font-size: var(--s-fs-lg);
+  line-height: 1.45;
+  color: var(--s-text-2);
+  text-wrap: pretty;
+}
+
+.s-sectors {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 var(--s-gap);
+}
+
+/* Each item spans four shared rows so numbers, titles, text and
+   examples line up across columns however the titles wrap */
+.s-sector {
+  display: grid;
+  grid-row: span 4;
+  grid-template-rows: subgrid;
+  row-gap: 0.75rem;
+  padding: 1.25rem 0 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+  transition: border-color 0.3s var(--ease);
+}
+
+.s-sector:hover,
+.s-sector:focus-within {
+  border-top-color: var(--s-accent);
+}
+
+.s-sector__num {
+  font-size: var(--s-fs-sm);
+  font-weight: 500;
+  color: var(--s-accent);
+}
+
+.s-sector__title {
+  font-family: var(--s-font);
+  font-size: var(--s-fs-lg);
+  font-weight: 500;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #FFFFFF;
+}
+
+.s-sector__text {
+  font-size: var(--s-fs-md);
+  line-height: 1.5;
+  color: var(--s-text-inv-2);
+}
+
+.s-sector__example {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 0.2rem;
+  min-height: 2.75rem;
+  padding-top: 0.75rem;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.s-sector__example-label {
+  font-size: var(--s-fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--s-text-inv-2);
+}
+
+.s-sector__example-name {
+  font-size: var(--s-fs-sm);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+a.s-sector__example:hover .s-sector__example-name {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+a.s-sector__example:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (max-width: 1100px) {
+  .s-sectors {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 2.5rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .s-head--split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .s-head__intro {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .s-sectors {
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 2rem;
+  }
+
+  .s-sector {
+    grid-row: auto;
+    grid-template-rows: none;
+    row-gap: 0.5rem;
+  }
+
+  .s-sector__example:empty {
+    display: none;
+  }
+}

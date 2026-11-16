@@ -191,36 +191,41 @@ export const SECTORS: {
   key: SectorKey;
   name: string;
   text: string;
-  example: string;
+  /** Shown only when a case study exists to link to */
+  example?: string;
+  caseSlug?: string;
 }[] = [
   {
     key: 'government',
     name: 'Government and regulators',
     text: 'Public awareness campaigns and national events.',
     example: 'UCC data protection conference',
+    caseSlug: 'ucc-data-protection-2025',
   },
   {
     key: 'finance',
     name: 'Banks and financial services',
     text: 'Product launches, financial literacy and brand campaigns.',
     example: 'Trust Empowerment Programme with Finance Trust Bank',
+    caseSlug: 'trust-empowerment-programme',
   },
   {
     key: 'programmes',
     name: 'Development programmes and funds',
     text: 'Documentaries and field coverage that show donors real results.',
     example: 'Her Digital Future',
+    caseSlug: 'digital-skilling-for-women',
   },
   {
     key: 'brands',
     name: 'Corporate brands',
     text: 'TV adverts, brand identity and launch events.',
-    example: '[Example to add]',
+    // TODO: add a corporate brand example once a case is approved for publishing
   },
 ];
 
 export const SECTORS_INTRO =
-  'We work with organisations that need to be heard: regulators explaining a law, banks launching a product, programmes showing results, brands launching a campaign.';
+  'Organisations that need to be heard: regulators, banks, programmes and brands.';
 
 export const SERVICES = [
   {

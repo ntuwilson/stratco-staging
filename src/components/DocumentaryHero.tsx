@@ -1,19 +1,17 @@
 'use client';
 
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef } from 'react';
+import FilmButton from '@/components/site/FilmButton';
+import { HERO } from '@/data/siteCopy';
 
 /**
  * Full-viewport documentary hero: a muted background loop from the
  * Her Digital Future film, a dark overlay, centred headline and two actions.
- * "Watch the film" opens the full film (with sound) in a lightbox.
  */
 export default function DocumentaryHero() {
   const loopRef = useRef<HTMLVideoElement | null>(null);
-  const filmTriggerRef = useRef<HTMLButtonElement | null>(null);
-  const closeRef = useRef<HTMLButtonElement | null>(null);
-  const [filmOpen, setFilmOpen] = useState(false);
   const filmOpenRef = useRef(false);
-  filmOpenRef.current = filmOpen;
+  const allowedRef = useRef(false);
 
   // Background loop: plays only when motion and data allow, and only on screen.
   // preload="none" keeps reduced-motion / Save-Data visitors on the poster image.
@@ -29,6 +27,7 @@ export default function DocumentaryHero() {
     );
     if (reducedMotion || saveData) return;
 
+    allowedRef.current = true;
     video.preload = 'auto';
     const observer = new IntersectionObserver(
       (entries) => {
@@ -48,32 +47,14 @@ export default function DocumentaryHero() {
     return () => observer.disconnect();
   }, []);
 
-  const closeFilm = useCallback(() => {
-    setFilmOpen(false);
-    filmTriggerRef.current?.focus();
-  }, []);
-
-  // Lightbox: lock page scroll, pause the loop, Esc closes, focus the close button
-  useEffect(() => {
-    if (!filmOpen) return;
+  // Pause the loop while the full film is open
+  const handleFilmOpen = useCallback((open: boolean) => {
+    filmOpenRef.current = open;
     const loop = loopRef.current;
-    loop?.pause();
-    const prevOverflow = document.body.style.overflow;
-    document.body.style.overflow = 'hidden';
-    closeRef.current?.focus();
-
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeFilm();
-    };
-    window.addEventListener('keydown', onKeyDown);
-    return () => {
-      document.body.style.overflow = prevOverflow;
-      window.removeEventListener('keydown', onKeyDown);
-      if (loop && loop.preload === 'auto') {
-        loop.play().catch(() => {});
-      }
-    };
-  }, [filmOpen, closeFilm]);
+    if (!loop || !allowedRef.current) return;
+    if (open) loop.pause();
+    else loop.play().catch(() => {});
+  }, []);
 
   return (
     <section className="doc-hero">
@@ -104,66 +85,20 @@ export default function DocumentaryHero() {
       <div className="doc-hero__overlay" aria-hidden="true" />
 
       <div className="container doc-hero__content">
-        <p className="doc-hero__eyebrow">Stratco · Kampala</p>
+        <p className="doc-hero__eyebrow">{HERO.label}</p>
         <h1 className="doc-hero__title">
-          Shaping what <span>millions remember</span>
+          {HERO.headline[0]} <span>{HERO.headline[1]}</span>
         </h1>
-        <p className="doc-hero__copy">
-          Campaigns, TV adverts, documentaries and live events for Uganda’s
-          leading institutions and brands.
-        </p>
+        <p className="doc-hero__copy">{HERO.line}</p>
         <div className="doc-hero__actions">
-          <a href="#contact" className="doc-pill doc-pill--primary">
-            Start a project
+          <a href="#contact" className="s-btn s-btn--primary">
+            {HERO.primary}
           </a>
-          <button
-            ref={filmTriggerRef}
-            type="button"
-            className="doc-pill doc-pill--light"
-            onClick={() => setFilmOpen(true)}
-            aria-haspopup="dialog"
-          >
-            <svg viewBox="0 0 12 14" aria-hidden="true">
-              <path d="M0 0v14l12-7z" fill="currentColor" />
-            </svg>
-            Watch the film
-          </button>
+          <FilmButton className="s-btn s-btn--light" onOpenChange={handleFilmOpen}>
+            {HERO.secondary}
+          </FilmButton>
         </div>
       </div>
-
-      {filmOpen && (
-        <div
-          className="film-lightbox"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Her Digital Future — programme film"
-          onClick={closeFilm}
-        >
-          <button
-            ref={closeRef}
-            type="button"
-            className="film-lightbox__close"
-            onClick={closeFilm}
-          >
-            <span>Close</span>
-            <span aria-hidden="true">✕</span>
-          </button>
-          <div
-            className="film-lightbox__frame"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <video
-              className="film-lightbox__video"
-              src="/video/stratco-film-720.mp4"
-              poster="/video/stratco-film-poster.jpg"
-              controls
-              autoPlay
-              playsInline
-              preload="auto"
-            />
-          </div>
-        </div>
-      )}
     </section>
   );
 }

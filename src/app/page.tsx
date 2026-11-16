@@ -1,5 +1,5 @@
-import StratcoExperience from '@/components/StratcoExperience';
+import StratcoHome from '@/components/StratcoHome';
 
 export default function HomePage() {
-  return <StratcoExperience />;
+  return <StratcoHome />;
 }

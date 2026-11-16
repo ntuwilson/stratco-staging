@@ -3,7 +3,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { CASE_STUDIES } from '@/data/stratcoData';
 import { SITE_URL } from '@/config/site';
-import KononenkoProjectView from '@/components/KononenkoProjectView';
+import CaseStudyView from '@/components/site/CaseStudyView';
+import { CASES } from '@/data/siteCopy';
 
 function findProject(slug: string) {
   return CASE_STUDIES.find((p) => p.slug === slug || p.id === slug);
@@ -69,6 +70,13 @@ export default async function ProjectDetailPage({
     notFound();
   }
 
+  const index = CASES.findIndex((c) => c.slug === project.slug);
+  if (index === -1) {
+    notFound();
+  }
+  const item = CASES[index];
+  const next = CASES[(index + 1) % CASES.length];
+
   const caseJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'CreativeWork',
@@ -87,7 +95,7 @@ export default async function ProjectDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseJsonLd) }}
       />
-      <KononenkoProjectView project={project} allProjects={CASE_STUDIES} />
+      <CaseStudyView item={item} image={project.image} next={next} />
     </>
   );
 }

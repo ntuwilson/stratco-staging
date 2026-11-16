@@ -8,6 +8,7 @@ import {
   SITE_URL,
 } from '@/config/site';
 import './globals.css';
+import './site-system.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),

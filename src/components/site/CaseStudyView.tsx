@@ -1,0 +1,129 @@
+import React from 'react';
+import SiteNav from '@/components/site/SiteNav';
+import SiteFooter from '@/components/site/SiteFooter';
+import Placeholder from '@/components/site/Placeholder';
+import FilmButton from '@/components/site/FilmButton';
+import type { CaseCopy } from '@/data/siteCopy';
+
+/**
+ * Case study, in the blueprint's structure:
+ * header (client, year, big figure) · film or one photo · the brief ·
+ * our answer · the result · request a proposal.
+ */
+export default function CaseStudyView({
+  item,
+  image,
+  next,
+}: {
+  item: CaseCopy;
+  image: string;
+  next: CaseCopy;
+}) {
+  return (
+    <div className="s-site">
+      <SiteNav />
+
+      <main>
+        <section className="s-pagehead">
+          <div className="container">
+            <a href="/work/" className="s-back">
+              ← All work
+            </a>
+            <div className="s-case-head__grid">
+              <h1 className="s-h1">{item.name}</h1>
+              <p className="s-case-figure">
+                <strong>{item.figure.value}</strong>
+                <span>{item.figure.label}</span>
+              </p>
+            </div>
+            <dl className="s-facts">
+              <div>
+                <dt>Client</dt>
+                <dd>{item.client}</dd>
+              </div>
+              <div>
+                <dt>Where</dt>
+                <dd>{item.where}</dd>
+              </div>
+              <div>
+                <dt>Year</dt>
+                <dd>{item.year}</dd>
+              </div>
+            </dl>
+          </div>
+        </section>
+
+        <div className="container">
+          <figure className="s-case-media">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={item.film ? '/video/stratco-film-poster.jpg' : image}
+              alt={item.name}
+            />
+            {item.film && (
+              <FilmButton className="s-btn s-btn--light s-film__play">
+                Watch the film
+              </FilmButton>
+            )}
+          </figure>
+        </div>
+
+        <section className="s-section s-section--light">
+          <div className="container s-case-body">
+            <div>
+              <h2 className="s-label">The brief</h2>
+              <p>{item.brief}</p>
+            </div>
+            <div>
+              <h2 className="s-label">Our answer</h2>
+              <ul>
+                {item.answer.map((a) => (
+                  <li key={a}>{a}</li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h2 className="s-label">The result</h2>
+              <p>
+                <Placeholder text={item.result} />
+              </p>
+            </div>
+          </div>
+        </section>
+
+        {item.quote && (
+          <section className="s-section s-section--tint">
+            <div className="container">
+              <blockquote className="s-quote" style={{ maxWidth: '52rem' }}>
+                <p>“{item.quote.text}”</p>
+                <cite>{item.quote.who}</cite>
+              </blockquote>
+            </div>
+          </section>
+        )}
+
+        <section className="s-section s-section--dark">
+          <div className="container s-cta-band">
+            <h2 className="s-h2">Planning something similar?</h2>
+            <a href="/#contact" className="s-btn s-btn--primary">
+              Request a proposal
+            </a>
+          </div>
+        </section>
+
+        <section className="s-section s-section--light">
+          <div className="container">
+            <a href={`/work/${next.slug}/`} className="s-next">
+              <span className="s-label">Next case</span>
+              <span className="s-h2" style={{ display: 'block' }}>
+                {next.name} →
+              </span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <SiteFooter />
+    </div>
+  );
+}

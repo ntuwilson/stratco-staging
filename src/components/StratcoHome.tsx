@@ -5,6 +5,7 @@ import DocumentaryHero from '@/components/DocumentaryHero';
 import Placeholder from '@/components/site/Placeholder';
 import FilmButton from '@/components/site/FilmButton';
 import ContactForm from '@/components/site/ContactForm';
+import VideoTestimonials from '@/components/site/VideoTestimonials';
 import { CASE_STUDIES } from '@/data/stratcoData';
 import {
   CASES,
@@ -16,7 +17,7 @@ import {
   SECTORS_INTRO,
   SERVICES,
   STEPS,
-  TESTIMONIALS,
+  VIDEO_TESTIMONIALS,
   WATCH,
   WHY,
 } from '@/data/siteCopy';
@@ -199,20 +200,11 @@ export default function StratcoHome() {
         {/* 8. In their words */}
         <section className="s-section s-section--dark">
           <div className="container">
-            <p className="s-label">{TESTIMONIALS.heading}</p>
-            <div className="s-quotes">
-              {TESTIMONIALS.quotes.map((q) => (
-                <blockquote key={q.who} className="s-quote">
-                  <p>“{q.text}”</p>
-                  <cite>{q.who}</cite>
-                </blockquote>
-              ))}
-              <div className="s-quote s-quote--pending">
-                <p>
-                  <Placeholder text={TESTIMONIALS.pending} />
-                </p>
-              </div>
+            <div className="s-head s-head--stack s-head--tight">
+              <p className="s-label">{VIDEO_TESTIMONIALS.label}</p>
+              <p className="s-vt-intro">{VIDEO_TESTIMONIALS.intro}</p>
             </div>
+            <VideoTestimonials />
           </div>
         </section>
 

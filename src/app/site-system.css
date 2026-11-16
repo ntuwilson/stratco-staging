@@ -1723,3 +1723,22 @@ a.s-sector__example:focus-visible {
     margin-top: 2rem;
   }
 }
+
+/* Home: testimonial videos on the dark band */
+.s-head--tight {
+  margin-bottom: 1.5rem;
+}
+
+.s-head--tight .s-label {
+  margin-bottom: 0.5rem;
+}
+
+.s-vt-intro {
+  font-size: var(--s-fs-lg);
+  line-height: 1.4;
+  color: var(--s-text);
+}
+
+.s-section--dark .s-vcard:focus-visible {
+  outline-color: #FFFFFF;
+}

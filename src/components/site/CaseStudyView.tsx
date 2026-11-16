@@ -3,6 +3,7 @@ import SiteNav from '@/components/site/SiteNav';
 import SiteFooter from '@/components/site/SiteFooter';
 import Placeholder from '@/components/site/Placeholder';
 import FilmButton from '@/components/site/FilmButton';
+import VideoTestimonials from '@/components/site/VideoTestimonials';
 import { VIDEO_TESTIMONIALS, type CaseCopy } from '@/data/siteCopy';
 
 /**
@@ -106,34 +107,7 @@ export default function CaseStudyView({
               <h2 id="vt-heading" className="s-h3 s-vcards__heading">
                 {VIDEO_TESTIMONIALS.heading}
               </h2>
-              <ul className="s-vcards s-rail">
-                {VIDEO_TESTIMONIALS.items.map((v) => {
-                  const who = v.name ? `${v.name}, ${v.district}` : v.district;
-                  return (
-                    <li key={v.key}>
-                      <FilmButton
-                        className="s-vcard"
-                        src={v.src}
-                        poster={v.poster}
-                        title={`Testimonial — ${who}`}
-                        playIcon={false}
-                        ariaLabel={`Play testimonial: ${who}, ${v.duration}`}
-                      >
-                        <span className="s-vcard__media">
-                          {/* eslint-disable-next-line @next/next/no-img-element */}
-                          <img src={v.poster} alt="" loading="lazy" />
-                          <span className="s-vcard__play" aria-hidden="true">
-                            <svg viewBox="0 0 12 14">
-                              <path d="M0 0v14l12-7z" fill="currentColor" />
-                            </svg>
-                          </span>
-                          <span className="s-vcard__time">{v.duration}</span>
-                        </span>
-                      </FilmButton>
-                    </li>
-                  );
-                })}
-              </ul>
+              <VideoTestimonials />
             </div>
           </section>
         )}

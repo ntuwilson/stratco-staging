@@ -160,6 +160,7 @@ export interface VideoTestimonial {
 export const VIDEO_TESTIMONIALS = {
   label: 'In their words',
   heading: 'Women share what changed',
+  intro: 'Women from Her Digital Future, in their own words.',
   items: [
     {
       key: 'nakasongola',

@@ -3,7 +3,7 @@ import SiteNav from '@/components/site/SiteNav';
 import SiteFooter from '@/components/site/SiteFooter';
 import Placeholder from '@/components/site/Placeholder';
 import FilmButton from '@/components/site/FilmButton';
-import type { CaseCopy } from '@/data/siteCopy';
+import { VIDEO_TESTIMONIALS, type CaseCopy } from '@/data/siteCopy';
 
 /**
  * Case study, in the blueprint's structure:
@@ -98,6 +98,67 @@ export default function CaseStudyView({
                 <p>“{item.quote.text}”</p>
                 <cite>{item.quote.who}</cite>
               </blockquote>
+            </div>
+          </section>
+        )}
+
+        {item.film && (
+          <section
+            className="s-section s-section--light"
+            aria-labelledby="vt-heading"
+          >
+            <div className="container">
+              <div className="s-head s-head--stack">
+                <p className="s-label s-label--accent">
+                  {VIDEO_TESTIMONIALS.label}
+                </p>
+                <h2 id="vt-heading" className="s-h2">
+                  {VIDEO_TESTIMONIALS.heading}
+                </h2>
+              </div>
+              <ul className="s-vcards">
+                {VIDEO_TESTIMONIALS.items.map((v) => {
+                  const who = v.name ? `${v.name}, ${v.district}` : v.district;
+                  return (
+                    <li key={v.key}>
+                      <FilmButton
+                        className="s-vcard"
+                        src={v.src}
+                        poster={v.poster}
+                        title={`Testimonial — ${who}`}
+                        playIcon={false}
+                        ariaLabel={`Play testimonial: ${who}, ${v.duration}`}
+                      >
+                        <span className="s-vcard__media">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img src={v.poster} alt="" loading="lazy" />
+                          <span className="s-vcard__play" aria-hidden="true">
+                            <svg viewBox="0 0 12 14">
+                              <path d="M0 0v14l12-7z" fill="currentColor" />
+                            </svg>
+                          </span>
+                          <span className="s-vcard__time">{v.duration}</span>
+                        </span>
+                        <span className="s-vcard__body">
+                          {v.name && (
+                            <span className="s-vcard__name">{v.name}</span>
+                          )}
+                          <span
+                            className={
+                              v.name ? 's-vcard__place' : 's-vcard__name'
+                            }
+                          >
+                            {v.district} District
+                          </span>
+                          {v.line && (
+                            <span className="s-vcard__line">“{v.line}”</span>
+                          )}
+                        </span>
+                      </FilmButton>
+                    </li>
+                  );
+                })}
+              </ul>
             </div>
           </section>
         )}

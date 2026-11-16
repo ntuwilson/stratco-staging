@@ -144,6 +144,49 @@ export const CASES: CaseCopy[] = [
   },
 ];
 
+// Her Digital Future video testimonials (case page). Names and lines only
+// where the clip itself shows them: Nakasongola 01 has a spoken name and
+// burned-in English captions; the other two show neither, so district only.
+export interface VideoTestimonial {
+  key: string;
+  name?: string;
+  district: string;
+  duration: string;
+  line?: string;
+  src: string;
+  poster: string;
+}
+
+export const VIDEO_TESTIMONIALS = {
+  label: 'In their words',
+  heading: 'Women share what changed',
+  items: [
+    {
+      key: 'nakasongola',
+      name: 'Alyesiga Stidia Olga',
+      district: 'Nakasongola',
+      duration: '0:41',
+      line: 'They have really taught us a lot how to use smartphones… to market our businesses.',
+      src: '/video/testimonials/nakasongola-720.mp4',
+      poster: '/video/testimonials/nakasongola-poster.jpg',
+    },
+    {
+      key: 'bunyangabo',
+      district: 'Bunyangabo',
+      duration: '1:20',
+      src: '/video/testimonials/bunyangabo-720.mp4',
+      poster: '/video/testimonials/bunyangabo-poster.jpg',
+    },
+    {
+      key: 'kitagwenda',
+      district: 'Kitagwenda',
+      duration: '0:56',
+      src: '/video/testimonials/kitagwenda-720.mp4',
+      poster: '/video/testimonials/kitagwenda-poster.jpg',
+    },
+  ] as VideoTestimonial[],
+};
+
 export const SECTORS: {
   key: SectorKey;
   name: string;

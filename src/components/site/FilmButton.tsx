@@ -3,17 +3,28 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 
 /**
- * A button that opens the full programme film (with sound) in a lightbox.
- * The film only downloads once the button is pressed.
+ * A button that opens a film (with sound) in a lightbox. Defaults to the full
+ * programme film; pass src/poster/title for another clip. The video only
+ * downloads once the button is pressed.
  */
 export default function FilmButton({
   className,
   children,
   onOpenChange,
+  src = '/video/stratco-film-720.mp4',
+  poster = '/video/stratco-film-poster.jpg',
+  title = 'Her Digital Future — programme film',
+  playIcon = true,
+  ariaLabel,
 }: {
   className: string;
   children: React.ReactNode;
   onOpenChange?: (open: boolean) => void;
+  src?: string;
+  poster?: string;
+  title?: string;
+  playIcon?: boolean;
+  ariaLabel?: string;
 }) {
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const closeRef = useRef<HTMLButtonElement | null>(null);
@@ -48,10 +59,13 @@ export default function FilmButton({
         className={className}
         onClick={() => setOpen(true)}
         aria-haspopup="dialog"
+        aria-label={ariaLabel}
       >
-        <svg viewBox="0 0 12 14" aria-hidden="true" className="s-play">
-          <path d="M0 0v14l12-7z" fill="currentColor" />
-        </svg>
+        {playIcon && (
+          <svg viewBox="0 0 12 14" aria-hidden="true" className="s-play">
+            <path d="M0 0v14l12-7z" fill="currentColor" />
+          </svg>
+        )}
         {children}
       </button>
 
@@ -60,7 +74,7 @@ export default function FilmButton({
           className="film-lightbox"
           role="dialog"
           aria-modal="true"
-          aria-label="Her Digital Future — programme film"
+          aria-label={title}
           onClick={close}
         >
           <button
@@ -78,8 +92,8 @@ export default function FilmButton({
           >
             <video
               className="film-lightbox__video"
-              src="/video/stratco-film-720.mp4"
-              poster="/video/stratco-film-poster.jpg"
+              src={src}
+              poster={poster}
               controls
               autoPlay
               playsInline

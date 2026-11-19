@@ -6,7 +6,7 @@ const nextConfig = {
   devIndicators: false,
   // Let phones and laptops on the office Wi-Fi load the dev server's scripts
   // (dev only; has no effect on the static export)
-  allowedDevOrigins: ['192.168.100.208', '192.168.1.7', '192.168.1.*', '192.168.100.*'],
+  allowedDevOrigins: ['192.168.1.71', '192.168.100.208', '192.168.1.7', '192.168.1.*', '192.168.100.*'],
   images: {
     unoptimized: true,
     remotePatterns: [

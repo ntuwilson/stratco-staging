@@ -1,12 +1,14 @@
 import Script from 'next/script';
 import { CLARITY_ID, GA_MEASUREMENT_ID } from '@/config/analytics';
+import { IS_STAGING } from '@/config/site';
 
 /**
  * Google Analytics 4 (visits, sources, events) and Microsoft Clarity
  * (heatmaps, session recordings). Each loads only when its ID is set.
  */
 export default function Analytics() {
-  if (!GA_MEASUREMENT_ID && !CLARITY_ID) return null;
+  // The staging review copy never reports to the live analytics
+  if (IS_STAGING || (!GA_MEASUREMENT_ID && !CLARITY_ID)) return null;
 
   return (
     <>

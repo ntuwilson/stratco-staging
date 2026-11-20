@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Analytics from '@/components/Analytics';
 import {
+  IS_STAGING,
   OG_IMAGE,
   SITE_DESCRIPTION,
   SITE_NAME,
@@ -41,7 +42,9 @@ export const metadata: Metadata = {
     description: SITE_DESCRIPTION,
     images: [OG_IMAGE],
   },
-  robots: { index: true, follow: true },
+  robots: IS_STAGING
+    ? { index: false, follow: false }
+    : { index: true, follow: true },
 };
 
 // Organisation details for Google (knowledge panel, local results)

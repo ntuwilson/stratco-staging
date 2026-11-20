@@ -11,7 +11,10 @@ export const SITE_DESCRIPTION =
 export const OG_IMAGE = '/og.jpg';
 
 /**
- * Set NEXT_PUBLIC_SITE_ENV=staging on the review (Vercel) copy: it turns off
- * analytics and asks search engines not to index it. The live site leaves it unset.
+ * The review copy (built on Vercel, which always sets VERCEL=1) turns off
+ * analytics and asks search engines not to index it. The live site builds on
+ * GitHub Actions, where neither is set. NEXT_PUBLIC_SITE_ENV=staging forces it.
+ * Read at build time only (layout metadata, robots, the Analytics server component).
  */
-export const IS_STAGING = process.env.NEXT_PUBLIC_SITE_ENV === 'staging';
+export const IS_STAGING =
+  process.env.VERCEL === '1' || process.env.NEXT_PUBLIC_SITE_ENV === 'staging';

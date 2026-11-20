@@ -8,14 +8,14 @@ import ContactForm from '@/components/site/ContactForm';
 import VideoTestimonials from '@/components/site/VideoTestimonials';
 import CampaignCheck from '@/components/site/CampaignCheck';
 import HowWeWork from '@/components/site/HowWeWork';
+import Sectors from '@/components/site/Sectors';
+import Reveal from '@/components/site/Reveal';
 import { CASE_STUDIES } from '@/data/stratcoData';
 import {
   CASES,
   CHECK,
   CONTACT,
   PARTNERS,
-  SECTORS,
-  SECTORS_INTRO,
   SERVICES,
   VIDEO_TESTIMONIALS,
   WATCH,
@@ -127,33 +127,7 @@ export default function StratcoHome() {
         </section>
 
         {/* 5. Sectors */}
-        <section className="s-section s-section--dark">
-          <div className="container">
-            <div className="s-head s-head--split">
-              <h2 className="s-h2">Sectors we serve</h2>
-              <p className="s-head__intro">{SECTORS_INTRO}</p>
-            </div>
-            <ul className="s-sectors">
-              {SECTORS.map((s, i) => (
-                <li key={s.key} className="s-sector">
-                  <span className="s-sector__num">0{i + 1}</span>
-                  <h3 className="s-sector__title">{s.name}</h3>
-                  <p className="s-sector__text">{s.text}</p>
-                  {s.example && s.caseSlug ? (
-                    <a href={`/work/${s.caseSlug}/`} className="s-sector__example">
-                      <span className="s-sector__example-label">Example</span>
-                      <span className="s-sector__example-name">
-                        {s.example} <span aria-hidden="true">→</span>
-                      </span>
-                    </a>
-                  ) : (
-                    <span className="s-sector__example" aria-hidden="true" />
-                  )}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </section>
+        <Sectors />
 
         {/* 6. What we do */}
         <section id="services" className="s-section s-section--light">
@@ -252,6 +226,7 @@ export default function StratcoHome() {
       </main>
 
       <SiteFooter />
+      <Reveal />
     </div>
   );
 }

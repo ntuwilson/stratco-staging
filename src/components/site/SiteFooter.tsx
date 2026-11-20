@@ -1,7 +1,6 @@
 import React from 'react';
 import { StratcoWordmark } from '@/components/StratcoVectors';
-import Placeholder from '@/components/site/Placeholder';
-import { WATCH } from '@/data/siteCopy';
+import { SOCIAL_LINKS } from '@/config/social';
 
 export default function SiteFooter() {
   return (
@@ -19,14 +18,21 @@ export default function SiteFooter() {
           <a href="/#contact">Contact</a>
         </nav>
 
-        <div className="s-footer__social">
-          {WATCH.channels.map((name) => (
-            <span key={name} className="s-footer__channel">
-              {name}
-            </span>
-          ))}
-          <Placeholder text={WATCH.pending} />
-        </div>
+        {SOCIAL_LINKS.length > 0 && (
+          <div className="s-footer__social">
+            {SOCIAL_LINKS.map((s) => (
+              <a
+                key={s.name}
+                href={s.url}
+                className="s-footer__channel"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {s.name}
+              </a>
+            ))}
+          </div>
+        )}
 
         <p className="s-footer__legal">© 2026 Stratco Limited</p>
       </div>

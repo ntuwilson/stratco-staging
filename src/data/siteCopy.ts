@@ -387,11 +387,14 @@ export const CHECK = {
   ],
 };
 
+// Social links live in src/config/social.ts; the channel line only shows
+// once at least one link is set.
 export const WATCH = {
   heading: 'Watch the work',
-  body: 'Full films on YouTube. Behind the scenes on TikTok and Instagram.',
-  channels: ['YouTube', 'TikTok', 'Instagram'],
-  pending: '[links to add]',
+  filmTitle: 'Her Digital Future',
+  filmLine: 'The programme film, in full.',
+  filmLength: '2:17',
+  channelsLine: 'Full films on YouTube. Behind the scenes on TikTok and Instagram.',
 };
 
 export const CONTACT = {

@@ -15,6 +15,8 @@ const SELECTOR = [
   '.s-vcard',
   '.s-split__media',
   '.s-case-block',
+  '.s-watch__film',
+  '.s-checkcard',
 ].join(',');
 
 /**

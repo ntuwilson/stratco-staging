@@ -7,6 +7,7 @@ import FilmButton from '@/components/site/FilmButton';
 import ContactForm from '@/components/site/ContactForm';
 import VideoTestimonials from '@/components/site/VideoTestimonials';
 import CampaignCheck from '@/components/site/CampaignCheck';
+import { SOCIAL_LINKS } from '@/config/social';
 import HowWeWork from '@/components/site/HowWeWork';
 import Sectors from '@/components/site/Sectors';
 import Reveal from '@/components/site/Reveal';
@@ -151,11 +152,14 @@ export default function StratcoHome() {
         <HowWeWork />
 
         {/* 8. In their words */}
-        <section className="s-section s-section--tint">
+        <section className="s-section s-section--tint s-words">
           <div className="container">
-            <div className="s-head s-head--stack s-head--tight">
-              <p className="s-label">{VIDEO_TESTIMONIALS.label}</p>
-              <p className="s-vt-intro">{VIDEO_TESTIMONIALS.intro}</p>
+            <div className="s-head s-head--split">
+              <div>
+                <p className="s-label s-label--accent">{VIDEO_TESTIMONIALS.label}</p>
+                <h2 className="s-h2">{VIDEO_TESTIMONIALS.heading}</h2>
+              </div>
+              <p className="s-head__intro">{VIDEO_TESTIMONIALS.intro}</p>
             </div>
             <VideoTestimonials />
           </div>
@@ -173,32 +177,51 @@ export default function StratcoHome() {
           </div>
         </section>
 
-        {/* 10. Watch and follow */}
-        <section className="s-section s-section--tint">
-          <div className="container s-split">
-            <div className="s-split__text">
-              <h2 className="s-h2">{WATCH.heading}</h2>
-              <p className="s-lead">{WATCH.body}</p>
-              <ul className="s-channels">
-                {WATCH.channels.map((c) => (
-                  <li key={c}>{c}</li>
-                ))}
-                <li>
-                  <Placeholder text={WATCH.pending} />
-                </li>
-              </ul>
+        {/* 10. Watch the work */}
+        <section className="s-section s-section--dark s-watch">
+          <div className="container">
+            <div className="s-watch__head">
+              <h2 className="s-hw__title">{WATCH.heading}</h2>
+              {SOCIAL_LINKS.length > 0 && (
+                <div className="s-watch__social">
+                  <p>{WATCH.channelsLine}</p>
+                  <ul className="s-watch__channels">
+                    {SOCIAL_LINKS.map((c) => (
+                      <li key={c.name}>
+                        <a href={c.url} target="_blank" rel="noopener noreferrer">
+                          {c.name} <span aria-hidden="true">↗</span>
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
-            <figure className="s-split__media s-film">
+
+            <FilmButton
+              className="s-watch__film"
+              playIcon={false}
+              ariaLabel={`Watch the film: ${WATCH.filmTitle}, ${WATCH.filmLength}`}
+            >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/video/stratco-film-poster.jpg"
-                alt="Still from the Her Digital Future programme film"
+                alt=""
                 loading="lazy"
               />
-              <FilmButton className="s-btn s-btn--light s-film__play">
-                Watch the film
-              </FilmButton>
-            </figure>
+              <span className="s-watch__shade" aria-hidden="true" />
+              <span className="s-watch__play" aria-hidden="true">
+                <svg viewBox="0 0 12 14">
+                  <path d="M0 0v14l12-7z" fill="currentColor" />
+                </svg>
+              </span>
+              <span className="s-watch__caption">
+                <span className="s-watch__title">{WATCH.filmTitle}</span>
+                <span className="s-watch__line">
+                  {WATCH.filmLine} <span>{WATCH.filmLength}</span>
+                </span>
+              </span>
+            </FilmButton>
           </div>
         </section>
 

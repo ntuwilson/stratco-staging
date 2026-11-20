@@ -156,10 +156,13 @@ export default function CampaignCheck() {
         <span style={{ width: `${progress}%` }} />
       </div>
 
-      <div className="s-checkcard__body" aria-live="polite">
+      <div
+        className={`s-checkcard__body ${step < 0 ? 'is-intro' : ''}`}
+        aria-live="polite"
+      >
         {step < 0 && (
           <div className="s-checkcard__intro">
-            <p className="s-checkcard__step">6 questions · about a minute</p>
+            <p className="s-checkcard__step">What we&rsquo;ll ask about</p>
             <ol className="s-checkcard__areas">
               {QUESTIONS.map((item) => (
                 <li key={item.area}>{item.areaName}</li>
@@ -170,8 +173,11 @@ export default function CampaignCheck() {
               className="s-btn s-btn--primary s-checkcard__start"
               onClick={start}
             >
-              {CHECK.button}
+              {CHECK.button} <span aria-hidden="true">→</span>
             </button>
+            <p className="s-checkcard__note">
+              Takes about a minute · Free · No sign-up
+            </p>
           </div>
         )}
 

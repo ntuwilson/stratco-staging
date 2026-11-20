@@ -26,20 +26,18 @@ export const NUMBERS: { value: string; label: string }[] = [
 // listed by name only.
 export const PARTNERS = {
   heading: 'Partners and clients',
+  // scale evens out the visual weight of wide wordmarks and tall emblems
   logos: [
-    { name: 'Government of Uganda', src: '/partners/government-of-uganda.png', scale: 1.15 },
+    { name: 'Uganda Communications Commission', src: '/partners/ucc.png', scale: 0.72 },
+    { name: 'Ministry of ICT and National Guidance', src: '/partners/ministry-of-ict.png', scale: 1.2 },
+    { name: 'Uganda Communications Universal Service and Access Fund', src: '/partners/ucusaf.png', scale: 0.72 },
+    { name: 'Government of Uganda', src: '/partners/government-of-uganda.png', scale: 1.15, caption: 'Government of Uganda' },
     { name: 'The World Bank', src: '/partners/world-bank.png', scale: 0.9 },
     { name: 'Private Sector Foundation Uganda', src: '/partners/psfu.png', scale: 1 },
     { name: 'Finance Trust Bank', src: '/partners/finance-trust-bank.png', scale: 1.1 },
-    { name: 'GROW Enterprises for Women', src: '/partners/grow-enterprises-for-women.png', scale: 0.85 },
-  ],
-  alsoLabel: 'Also with',
-  names: [
-    'Uganda Communications Commission',
-    'Ministry of ICT and National Guidance',
-    'UCUSAF',
-    'Penda',
-  ],
+    { name: 'GROW Enterprises for Women', src: '/partners/grow-enterprises-for-women.png', scale: 0.8 },
+    { name: 'Penda', src: '/partners/penda.png', scale: 0.72 },
+  ] as { name: string; src: string; scale: number; caption?: string }[],
 };
 
 export const WHY = {

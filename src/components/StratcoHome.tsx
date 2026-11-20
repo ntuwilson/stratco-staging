@@ -7,6 +7,7 @@ import FilmButton from '@/components/site/FilmButton';
 import ContactForm from '@/components/site/ContactForm';
 import VideoTestimonials from '@/components/site/VideoTestimonials';
 import CampaignCheck from '@/components/site/CampaignCheck';
+import HowWeWork from '@/components/site/HowWeWork';
 import { CASE_STUDIES } from '@/data/stratcoData';
 import {
   CASES,
@@ -16,7 +17,6 @@ import {
   SECTORS,
   SECTORS_INTRO,
   SERVICES,
-  STEPS,
   VIDEO_TESTIMONIALS,
   WATCH,
   WHY,
@@ -57,15 +57,14 @@ export default function StratcoHome() {
                       style={{ height: `calc(var(--s-logo-h) * ${p.scale})` }}
                     />
                   </span>
-                  <span className="s-partner__name" aria-hidden="true">
-                    {p.name}
-                  </span>
+                  {p.caption && (
+                    <span className="s-partner__name" aria-hidden="true">
+                      {p.caption}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
-            <p className="s-partners__also">
-              <span>{PARTNERS.alsoLabel}</span> {PARTNERS.names.join(' · ')}
-            </p>
           </div>
         </section>
 
@@ -175,25 +174,10 @@ export default function StratcoHome() {
         </section>
 
         {/* 7. How we work */}
-        <section id="process" className="s-section s-section--tint">
-          <div className="container">
-            <div className="s-head">
-              <h2 className="s-h2">How we work</h2>
-            </div>
-            <ol className="s-steps">
-              {STEPS.map((s, i) => (
-                <li key={s.title} className="s-step">
-                  <span className="s-step__num">{i + 1}</span>
-                  <h3 className="s-step__title">{s.title}</h3>
-                  <p className="s-step__text">{s.text}</p>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </section>
+        <HowWeWork />
 
         {/* 8. In their words */}
-        <section className="s-section s-section--dark">
+        <section className="s-section s-section--tint">
           <div className="container">
             <div className="s-head s-head--stack s-head--tight">
               <p className="s-label">{VIDEO_TESTIMONIALS.label}</p>

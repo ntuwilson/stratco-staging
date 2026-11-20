@@ -16,6 +16,8 @@ concurrency:
 
 jobs:
   build:
+    # Only the live repo deploys to stratcoug.com; the staging copy deploys on Vercel
+    if: github.repository == 'ntuwilson/stratco-agency'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

@@ -21,17 +21,25 @@ export const NUMBERS: { value: string; label: string }[] = [
 ];
 
 // Shown as names until written permission to show logos is confirmed
-export const CLIENTS = {
-  heading: 'Clients and partners',
+// Partners and clients. Logos supplied by Stratco (originals kept outside the
+// repo); web copies live in public/partners/. Clients without a logo file are
+// listed by name only.
+export const PARTNERS = {
+  heading: 'Partners and clients',
+  logos: [
+    { name: 'Government of Uganda', src: '/partners/government-of-uganda.png', scale: 1.15 },
+    { name: 'The World Bank', src: '/partners/world-bank.png', scale: 0.9 },
+    { name: 'Private Sector Foundation Uganda', src: '/partners/psfu.png', scale: 1 },
+    { name: 'Finance Trust Bank', src: '/partners/finance-trust-bank.png', scale: 1.1 },
+    { name: 'GROW Enterprises for Women', src: '/partners/grow-enterprises-for-women.png', scale: 0.85 },
+  ],
+  alsoLabel: 'Also with',
   names: [
     'Uganda Communications Commission',
     'Ministry of ICT and National Guidance',
     'UCUSAF',
     'Penda',
-    'Finance Trust Bank',
-    'PSFU',
   ],
-  pending: '[others with permission]',
 };
 
 export const WHY = {

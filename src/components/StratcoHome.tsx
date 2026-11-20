@@ -11,9 +11,8 @@ import { CASE_STUDIES } from '@/data/stratcoData';
 import {
   CASES,
   CHECK,
-  CLIENTS,
   CONTACT,
-  NUMBERS,
+  PARTNERS,
   SECTORS,
   SECTORS_INTRO,
   SERVICES,
@@ -42,36 +41,31 @@ export default function StratcoHome() {
         {/* 1. Film hero */}
         <DocumentaryHero />
 
-        {/* 2. Numbers and clients */}
-        <section className="s-section s-section--light" aria-label="Numbers and clients">
+        {/* 2. Partners and clients */}
+        <section className="s-section s-section--light s-partners" aria-labelledby="partners-heading">
           <div className="container">
-            <ul className="s-numbers">
-              {NUMBERS.map((n) => (
-                <li key={n.label} className="s-number">
-                  <span className="s-number__value">
-                    <Placeholder text={n.value} />
+            <h2 id="partners-heading" className="s-label">{PARTNERS.heading}</h2>
+            <ul className="s-partners__grid">
+              {PARTNERS.logos.map((p) => (
+                <li key={p.name} className="s-partner">
+                  <span className="s-partner__logo">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={p.src}
+                      alt={p.name}
+                      loading="lazy"
+                      style={{ height: `calc(var(--s-logo-h) * ${p.scale})` }}
+                    />
                   </span>
-                  <span className="s-number__label">
-                    <Placeholder text={n.label} />
+                  <span className="s-partner__name" aria-hidden="true">
+                    {p.name}
                   </span>
                 </li>
               ))}
             </ul>
-
-            <div className="s-clients">
-              <p className="s-label">{CLIENTS.heading}</p>
-              <ul className="s-clients__list">
-                {CLIENTS.names.map((name) => (
-                  <li key={name}>{name}</li>
-                ))}
-                <li>
-                  <Placeholder text={CLIENTS.pending} />
-                </li>
-              </ul>
-              <p className="s-note">
-                <Placeholder text="[Client logos appear here once written permission is confirmed]" />
-              </p>
-            </div>
+            <p className="s-partners__also">
+              <span>{PARTNERS.alsoLabel}</span> {PARTNERS.names.join(' · ')}
+            </p>
           </div>
         </section>
 

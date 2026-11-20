@@ -2049,3 +2049,95 @@ a.s-sector__example:focus-visible {
     font-size: var(--s-fs-sm);
   }
 }
+
+/* ---------- Partners and clients (home) ---------- */
+.s-partners {
+  --s-logo-h: 5rem;
+  padding-top: clamp(2.75rem, 5vw, 4rem);
+  padding-bottom: clamp(2.75rem, 5vw, 4rem);
+}
+
+.s-partners .s-label {
+  margin-bottom: 1.5rem;
+}
+
+.s-partners__grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.s-partner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+  padding: 1.25rem 0.75rem 1rem;
+  border: 1px solid var(--s-line);
+  border-radius: var(--s-radius);
+}
+
+.s-partner__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: calc(var(--s-logo-h) * 1.2);
+}
+
+.s-partner__logo img {
+  display: block;
+  max-width: 85%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+}
+
+.s-partner__name {
+  font-size: var(--s-fs-xs);
+  line-height: 1.35;
+  text-align: center;
+  color: var(--s-text-2);
+}
+
+.s-partners__also {
+  margin-top: 1.25rem;
+  font-size: var(--s-fs-sm);
+  line-height: 1.6;
+  color: var(--s-text);
+}
+
+.s-partners__also span {
+  margin-right: 0.4rem;
+  font-size: var(--s-fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--s-text-2);
+}
+
+@media (max-width: 900px) {
+  .s-partners__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .s-partners {
+    --s-logo-h: 3.25rem;
+  }
+
+  .s-partners__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.6rem;
+  }
+
+  .s-partner {
+    padding: 1rem 0.5rem 0.75rem;
+  }
+
+  /* Five logos: the last one spans the row so the grid ends evenly */
+  .s-partner:last-child {
+    grid-column: 1 / -1;
+  }
+}

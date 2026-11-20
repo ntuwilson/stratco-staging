@@ -1,6 +1,5 @@
 // Site copy from the approved blueprint ("Stratco website — copy and layout rewrite").
-// Anything in [square brackets] is a fact still to be confirmed: it is rendered
-// with a dashed underline (see <Placeholder>) and must not be presented as final.
+// All copy here is confirmed. Do not add unconfirmed figures or names.
 
 export type SectorKey = 'government' | 'finance' | 'programmes' | 'brands';
 
@@ -11,14 +10,6 @@ export const HERO = {
   primary: 'Request a proposal',
   secondary: 'Watch the film',
 };
-
-export const NUMBERS: { value: string; label: string }[] = [
-  { value: '500+', label: 'executives at one national conference' },
-  { value: '[number]', label: 'events produced since [year]' },
-  { value: '[3]', label: 'national programmes delivered since 2024' },
-  { value: '2,500+', label: 'women trained in digital skills' },
-  { value: '25+', label: 'districts reached' },
-];
 
 // Shown as names until written permission to show logos is confirmed
 // Partners and clients. Logos supplied by Stratco (originals kept outside the
@@ -98,7 +89,7 @@ export const CASES: CaseCopy[] = [
       'Delivered photos and video for same-day press and social media',
     ],
     result:
-      '500+ executives attended; coverage released the same day. [Add press or reach figures if available]',
+      '500+ executives attended, with photos and video released the same day.',
   },
   {
     slug: 'digital-skilling-for-women',
@@ -146,7 +137,7 @@ export const CASES: CaseCopy[] = [
       'Edited and released short clips the same day',
       'Photographed the programme for partner reports',
     ],
-    result: '10 districts covered in 2026. [Number of women trained, to confirm]',
+    result: 'Sessions covered in 10 districts in 2026, with short clips released the same day.',
   },
 ];
 
@@ -276,8 +267,6 @@ export const TESTIMONIALS = {
       who: 'Apoyo Ruth Hilda, participant, Nakasongola District',
     },
   ],
-  pending:
-    '[Second quote: a client decision maker, for example a programme lead at Penda or UCC, with permission]',
 };
 
 // Free campaign check: six self-assessment questions, scored 0-3 each.

@@ -95,7 +95,14 @@ export default async function ProjectDetailPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(caseJsonLd) }}
       />
-      <CaseStudyView item={item} image={project.image} next={next} />
+      <CaseStudyView
+        item={item}
+        image={project.image}
+        photos={project.gallery
+          .filter((g) => g.src !== project.image)
+          .map((g) => ({ src: g.src, caption: g.caption }))}
+        next={next}
+      />
     </>
   );
 }

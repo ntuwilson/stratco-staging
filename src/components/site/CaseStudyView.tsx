@@ -1,23 +1,26 @@
 import React from 'react';
 import SiteNav from '@/components/site/SiteNav';
 import SiteFooter from '@/components/site/SiteFooter';
-import Placeholder from '@/components/site/Placeholder';
+import CaseGallery, { type GalleryPhoto } from '@/components/site/CaseGallery';
+import Reveal from '@/components/site/Reveal';
 import FilmButton from '@/components/site/FilmButton';
 import VideoTestimonials from '@/components/site/VideoTestimonials';
 import { VIDEO_TESTIMONIALS, type CaseCopy } from '@/data/siteCopy';
 
 /**
  * Case study, in the blueprint's structure:
- * header (client, year, big figure) · film or one photo · the brief ·
- * our answer · the result · request a proposal.
+ * header (client, year, big figure) · film or lead photo · brief, answer,
+ * result · photo gallery · testimonials (film cases) · request a proposal.
  */
 export default function CaseStudyView({
   item,
   image,
+  photos,
   next,
 }: {
   item: CaseCopy;
   image: string;
+  photos: GalleryPhoto[];
   next: CaseCopy;
 }) {
   return (
@@ -91,16 +94,26 @@ export default function CaseStudyView({
               <h2 className="s-case-block__title">
                 <span>03</span> The result
               </h2>
-              <p>
-                <Placeholder text={item.result} />
-              </p>
+              <p>{item.result}</p>
             </div>
           </div>
         </section>
 
+        {photos.length > 0 && (
+          <section className="s-section s-section--tint s-case-photos" aria-labelledby="photos-heading">
+            <div className="container">
+              <div className="s-case-photos__head">
+                <h2 id="photos-heading" className="s-h3">In pictures</h2>
+                <p>{photos.length} photos · tap any photo to view it full screen</p>
+              </div>
+              <CaseGallery photos={photos} />
+            </div>
+          </section>
+        )}
+
         {item.film && (
           <section
-            className="s-section s-section--light s-section--follow"
+            className="s-section s-section--light"
             aria-labelledby="vt-heading"
           >
             <div className="container">
@@ -130,6 +143,7 @@ export default function CaseStudyView({
       </main>
 
       <SiteFooter />
+      <Reveal />
     </div>
   );
 }

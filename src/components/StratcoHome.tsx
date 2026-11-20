@@ -2,7 +2,6 @@ import React from 'react';
 import SiteNav from '@/components/site/SiteNav';
 import SiteFooter from '@/components/site/SiteFooter';
 import DocumentaryHero from '@/components/DocumentaryHero';
-import Placeholder from '@/components/site/Placeholder';
 import FilmButton from '@/components/site/FilmButton';
 import ContactForm from '@/components/site/ContactForm';
 import VideoTestimonials from '@/components/site/VideoTestimonials';

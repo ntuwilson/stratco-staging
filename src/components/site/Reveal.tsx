@@ -17,6 +17,7 @@ const SELECTOR = [
   '.s-case-block',
   '.s-watch__film',
   '.s-checkcard',
+  '.s-gallery > li',
 ].join(',');
 
 /**

@@ -2889,3 +2889,107 @@ a.s-sector__example:focus-visible {
     font-size: 1.35rem;
   }
 }
+
+/* ---------- Partners: one quiet row, greyscale, colour on hover ---------- */
+.s-partners {
+  --s-logo-h: 2.6rem;
+  padding-top: clamp(2.5rem, 4.5vw, 3.5rem);
+  padding-bottom: clamp(2.5rem, 4.5vw, 3.5rem);
+}
+
+.s-partners .s-label {
+  margin-bottom: clamp(1.5rem, 3vw, 2.25rem);
+  text-align: center;
+}
+
+.s-partners__grid {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1rem, 2.4vw, 2.5rem);
+}
+
+.s-partner {
+  flex: 0 1 auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: none;
+}
+
+.s-partner__logo {
+  height: calc(var(--s-logo-h) * 1.25);
+}
+
+.s-partner__logo img {
+  max-width: 100%;
+  filter: grayscale(1);
+  opacity: 0.55;
+  transition: filter 0.4s ease, opacity 0.4s ease;
+}
+
+.s-partner:hover .s-partner__logo img {
+  filter: none;
+  opacity: 1;
+}
+
+/* Logos speak for themselves; the name stays in the image alt text */
+.s-partner__name {
+  display: none;
+}
+
+@media (max-width: 1100px) {
+  .s-partners__grid {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.75rem 2.5rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .s-partners {
+    --s-logo-h: 2.1rem;
+  }
+
+  .s-partners__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.75rem 1rem;
+    justify-items: center;
+  }
+
+  .s-partner {
+    flex-basis: auto;
+    min-height: 0;
+    padding: 0;
+  }
+
+  /* No hover on touch: show them a little stronger */
+  .s-partner__logo img {
+    opacity: 0.7;
+  }
+}
+
+/* Partners: greyscale for every logo (keeps emblems legible); full colour on hover */
+.s-partners .s-label {
+  font-size: 0.75rem;
+  color: rgba(20, 20, 20, 0.45);
+}
+
+.s-partner__logo img {
+  filter: grayscale(1) contrast(1.15);
+  opacity: 0.6;
+}
+
+.s-partner:hover .s-partner__logo img {
+  filter: none;
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .s-partner__logo img {
+    opacity: 0.7;
+  }
+}
